@@ -15,6 +15,7 @@ export default {
       numbers: []
     }
   },
+  // it seems unnecessary to have a local variable for limit when you can just access $parent.limit but it could be a Vue convention I'm not aware of
   watch: {
     ['$parent.limit'](newLimit)
     {
