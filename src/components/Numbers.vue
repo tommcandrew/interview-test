@@ -40,7 +40,8 @@ export default {
       {
         // also converting the text content here to number to avoid implicit type coercion on line with remainder operator
         const num = Number(nums[i].textContent.trim());
-        if(number % num === 0)
+        // checking values aren't same so hovered number isn't highlighted
+        if(number % num === 0 && number !== num)
         {
           nums[i].classList.add('active')
           console.log('divisor', num)
