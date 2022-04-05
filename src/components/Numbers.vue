@@ -18,7 +18,8 @@ export default {
   watch: {
     ['$parent.limit'](newLimit)
     {
-      this.limit = newLimit;
+      // converting the input value here to number so can use when generating array
+      this.limit = Number(newLimit);
     }
   },
   methods: {
@@ -37,7 +38,8 @@ export default {
 
       for(let i = 0; i < nums.length; i++)
       {
-        const num = nums[i].textContent.trim();
+        // also converting the text content here to number to avoid implicit type coercion on line with remainder operator
+        const num = Number(nums[i].textContent.trim());
         if(number % num === 0)
         {
           nums[i].classList.add('active')
