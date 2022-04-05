@@ -77,7 +77,12 @@ export default {
 		padding: 5px;
 		background-color: lightgrey;
 		margin: 5px;
+    cursor: pointer;
 	}
+
+  .number:hover {
+		background-color: grey;
+  }
 
 	.active {
 		background-color: red;
