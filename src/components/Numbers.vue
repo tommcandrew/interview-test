@@ -30,7 +30,8 @@ export default {
       {
         numbers = [...numbers, i];
       }
-      return numbers.sort(() => Math.random() - 0.5);
+      // as far as I know, Math.random is not considered reliable for shuffling so have used Fischer-Yates (copied from SO!)
+      return this.shuffle(numbers).sort(() => Math.random() - 0.5);
     },
     hov(number)
     {
@@ -52,6 +53,18 @@ export default {
     {
       const nums = document.querySelectorAll('.number');
       nums.forEach(num => num.classList.remove('active'))
+    },
+    shuffle(array)
+    {
+      let currentIndex = array.length
+      let randomIndex;
+      while (currentIndex != 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [
+          array[randomIndex], array[currentIndex]];
+      }
+      return array;
     }
   }
 }
