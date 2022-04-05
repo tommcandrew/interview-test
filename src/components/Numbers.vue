@@ -25,11 +25,8 @@ export default {
   methods: {
     n()
     {
-      let numbers = [];
-      for(var i = 0; i < this.limit; i++)
-      {
-        numbers = [...numbers, i];
-      }
+      // a for loop is O(n) whereas (I assume) Array.from is O(1) - UI performance is improved anyway
+      const numbers = Array.from(Array(this.limit).keys())
       // as far as I know, Math.random is not considered reliable for shuffling so have used Fischer-Yates (copied from SO!)
       return this.shuffle(numbers).sort(() => Math.random() - 0.5);
     },
