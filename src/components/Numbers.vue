@@ -46,7 +46,6 @@ export default {
         if(selectedNumber % numberNodeVal === 0 && selectedNumber !== numberNodeVal)
         {
           numberNodes[i].classList.add('active')
-          console.log('divisor', numberNodeVal)
         }
       }
     },
