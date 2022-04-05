@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="number" :id="'number-'+number" v-for="number in n()" :key="number" @mouseover="hov(number)" @mouseout="reset">
+    <div class="number" :id="'number-'+number" v-for="number in getNumbers()" :key="number" @mouseover="hov(number)" @mouseout="reset">
       {{number}}
     </div>
   </div>
@@ -24,7 +24,8 @@ export default {
     }
   },
   methods: {
-    n()
+    // renaming from n() so a bit clearer
+    getNumbers()
     {
       // a for loop is O(n) whereas (I assume) Array.from is O(1) - UI performance is improved anyway
       const numbers = Array.from(Array(this.limit).keys())
