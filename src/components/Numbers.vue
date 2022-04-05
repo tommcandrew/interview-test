@@ -32,19 +32,21 @@ export default {
       // as far as I know, Math.random is not considered reliable for shuffling so have used Fischer-Yates (copied from SO!)
       return this.shuffle(numbers).sort(() => Math.random() - 0.5);
     },
-    hov(number)
+    // renaming number to selectedNumber for clarity
+    hov(selectedNumber)
     {
-      const nums = document.querySelectorAll('.number');
+      // renaming nums to numberNodes for clarity
+      const numberNodes = document.querySelectorAll('.number');
 
-      for(let i = 0; i < nums.length; i++)
+      for(let i = 0; i < numberNodes.length; i++)
       {
         // also converting the text content here to number to avoid implicit type coercion on line with remainder operator
-        const num = Number(nums[i].textContent.trim());
+        const numberNodeVal = Number(numberNodes[i].textContent.trim());
         // checking values aren't same so hovered number isn't highlighted
-        if(number % num === 0 && number !== num)
+        if(selectedNumber % numberNodeVal === 0 && selectedNumber !== numberNodeVal)
         {
-          nums[i].classList.add('active')
-          console.log('divisor', num)
+          numberNodes[i].classList.add('active')
+          console.log('divisor', numberNodeVal)
         }
       }
     },
